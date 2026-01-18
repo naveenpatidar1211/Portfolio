@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: false, error: 'email and password are required' }, { status: 400 })
     }
 
-    const user = userOperations.getByEmail(email)
+    const user = await userOperations.getByEmail(email)
     if (!user) {
       return NextResponse.json({ success: false, error: 'Invalid credentials' }, { status: 401 })
     }

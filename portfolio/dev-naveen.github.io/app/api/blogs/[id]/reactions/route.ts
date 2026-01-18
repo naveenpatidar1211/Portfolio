@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { blogOperations } from '@/lib/database'
 
-function resolveBlogId(idOrSlug: string) {
-  const byId = blogOperations.getById(idOrSlug)
+async function resolveBlogId(idOrSlug: string) {
+  const byId = await blogOperations.getById(idOrSlug)
   if (byId) return byId.id as string
-  const bySlug = blogOperations.getBySlug(idOrSlug)
+  const bySlug = await blogOperations.getBySlug(idOrSlug)
   return bySlug ? (bySlug.id as string) : null
 }
 
@@ -20,12 +20,12 @@ export async function POST(
       return NextResponse.json({ success: false, error: 'Invalid action' }, { status: 400 })
     }
 
-    const blogId = resolveBlogId(params.id)
+    const blogId = await resolveBlogId(params.id)
     if (!blogId) {
       return NextResponse.json({ success: false, error: 'Blog not found' }, { status: 404 })
     }
 
-    const updated = blogOperations.incrementReaction(blogId, action)
+    const updated = await blogOperations.incrementReaction(blogId, action)
     if (!updated) {
       return NextResponse.json({ success: false, error: 'Failed to update reaction' }, { status: 500 })
     }

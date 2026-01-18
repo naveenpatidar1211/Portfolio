@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useAdminAuth } from '../../contexts/AdminAuthContext';
 import { 
   HomeIcon,
@@ -35,13 +36,13 @@ const navigation = [
 export function AdminLayout({ children }: AdminLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { logout } = useAdminAuth();
-  const location = useLocation();
+  const pathname = usePathname();
 
   const isActive = (href: string) => {
     if (href === '/admin') {
-      return location.pathname === '/admin';
+      return pathname === '/admin';
     }
-    return location.pathname.startsWith(href);
+    return pathname.startsWith(href);
   };
 
   const handleLogout = () => {
@@ -75,7 +76,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
               {navigation.map((item) => (
                 <Link
                   key={item.name}
-                  to={item.href}
+                  href={item.href}
                   className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${
                     isActive(item.href)
                       ? 'bg-purple-100 dark:bg-purple-900/50 text-purple-900 dark:text-purple-100'
@@ -116,7 +117,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
               {navigation.map((item) => (
                 <Link
                   key={item.name}
-                  to={item.href}
+                  href={item.href}
                   className={`group flex items-center px-2 py-2 text-sm font-medium rounded-md ${
                     isActive(item.href)
                       ? 'bg-purple-100 dark:bg-purple-900/50 text-purple-900 dark:text-purple-100'

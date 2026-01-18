@@ -7,7 +7,7 @@ import { blogOperations } from '@/lib/database'
 export async function generateStaticParams() {
   try {
     // Pre-render published blogs for static export builds
-    const { blogs } = blogOperations.getAll({ published: true, limit: 1000 })
+    const { blogs } = await blogOperations.getAll({ published: true, limit: 1000 })
     return blogs.map((b: any) => ({ id: b.slug }))
   } catch {
     return []
@@ -25,7 +25,7 @@ export default function BlogDetailPage({ params }: { params: { id: string } }) {
         </div>
       }>
         <AppWrapper>
-          <BlogDetailView blogId={id} />
+          <BlogDetailView />
         </AppWrapper>
       </Suspense>
     </ThemeProvider>

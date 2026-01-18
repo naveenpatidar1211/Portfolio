@@ -173,4 +173,4 @@ const Sidebar: React.FC<SidebarProps> = ({ isDarkMode, toggleDarkMode, isOpen, t
     );
 };
 
-export default Sidebar;
+export default React.memo(Sidebar);

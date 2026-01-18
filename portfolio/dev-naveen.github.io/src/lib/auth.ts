@@ -7,6 +7,7 @@ export function getAuthSecret() {
 }
 
 export function signToken(payload: object, opts: { expiresIn?: string } = {}) {
+  // @ts-expect-error - JWT types conflict
   return jwt.sign(payload, getAuthSecret(), { expiresIn: opts.expiresIn || '7d' })
 }
 

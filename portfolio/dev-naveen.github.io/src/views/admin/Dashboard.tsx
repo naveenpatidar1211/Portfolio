@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useAdminData } from '../../contexts/AdminDataContext';
 import { 
   FolderIcon,
@@ -76,7 +76,7 @@ const StatCard: React.FC<StatCardProps> = ({ title, value, icon: Icon, color, li
         
         <div className="mt-4 flex justify-between">
           <Link
-            to={link}
+            href={link}
             className={`inline-flex items-center text-sm font-medium ${classes.text} hover:underline`}
           >
             <PlusIcon className="h-4 w-4 mr-1" />
@@ -84,7 +84,7 @@ const StatCard: React.FC<StatCardProps> = ({ title, value, icon: Icon, color, li
           </Link>
           {showLink && (
             <Link
-              to={showLink}
+              href={showLink}
               className={`inline-flex items-center text-sm font-medium ${classes.text} hover:underline`}
             >
               <EyeIcon className="h-4 w-4 mr-1" />
@@ -222,7 +222,7 @@ export default function AdminDashboard() {
                     </div>
                     <div className="ml-4">
                       <Link
-                        to={item.link}
+                        href={item.link}
                         className="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 text-sm font-medium"
                       >
                         View
@@ -243,7 +243,7 @@ export default function AdminDashboard() {
           <div className="p-6">
             <div className="grid grid-cols-1 gap-4">
               <Link
-                to="/admin/projects/new"
+                href="/admin/projects/new"
                 className="flex items-center p-3 border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
               >
                 <div className="bg-blue-50 dark:bg-blue-900/50 p-2 rounded-md">
@@ -256,7 +256,7 @@ export default function AdminDashboard() {
               </Link>
 
               <Link
-                to="/admin/testimonials/new"
+                href="/admin/testimonials/new"
                 className="flex items-center p-3 border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
               >
                 <div className="bg-green-50 dark:bg-green-900/50 p-2 rounded-md">
@@ -269,7 +269,7 @@ export default function AdminDashboard() {
               </Link>
 
               <Link
-                to="/admin/blogs/new"
+                href="/admin/blogs/new"
                 className="flex items-center p-3 border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
               >
                 <div className="bg-purple-50 dark:bg-purple-900/50 p-2 rounded-md">
@@ -282,7 +282,7 @@ export default function AdminDashboard() {
               </Link>
 
               <Link
-                to="/admin/analytics"
+                href="/admin/analytics"
                 className="flex items-center p-3 border border-gray-200 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
               >
                 <div className="bg-yellow-50 dark:bg-yellow-900/50 p-2 rounded-md">

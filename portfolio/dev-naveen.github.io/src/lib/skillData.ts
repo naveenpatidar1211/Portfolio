@@ -19,7 +19,7 @@ import {
   SiMicrosoft, 
   SiGooglecloud, 
   SiFastapi, 
-  SiAws, 
+  SiAew, 
   SiJavascript, 
   SiTypescript,
   SiHuggingface,

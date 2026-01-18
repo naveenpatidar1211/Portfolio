@@ -16,7 +16,7 @@ export async function GET(
       )
     }
     
-    const project = projectOperations.getById(id)
+    const project = await projectOperations.getById(id)
     
     if (!project) {
       return NextResponse.json(

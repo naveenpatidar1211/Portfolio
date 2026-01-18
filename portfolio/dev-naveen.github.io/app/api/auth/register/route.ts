@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: false, error: 'Disposable emails are not allowed' }, { status: 400 })
     }
 
-    const existing = userOperations.getByEmail(email)
+    const existing = await userOperations.getByEmail(email)
     if (existing) {
       return NextResponse.json({ success: false, error: 'Email already registered' }, { status: 409 })
     }

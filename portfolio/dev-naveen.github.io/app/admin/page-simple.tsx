@@ -6,7 +6,7 @@ export default function AdminDashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [showAddProject, setShowAddProject] = useState(false);
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState<any[]>([]);
   const [projectForm, setProjectForm] = useState({
     title: '',
     description: '',
@@ -205,7 +205,7 @@ export default function AdminDashboard() {
                   <p className="text-sm text-gray-600 mb-3 line-clamp-2">{project.description}</p>
                   <div className="mb-3">
                     <div className="flex flex-wrap gap-1">
-                      {project.technologies.slice(0, 3).map((tech, index) => (
+                      {project.technologies.slice(0, 3).map((tech: string, index: number) => (
                         <span key={index} className="inline-block px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded">
                           {tech}
                         </span>

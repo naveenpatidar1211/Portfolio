@@ -9,7 +9,8 @@ import { useTheme } from "../contexts/ThemeProvider";
 import { useEffect, useState } from "react";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import { Theme } from "@tsparticles/engine";
+
+type Theme = "dark" | "light" | "system";
 
 export function ModeToggle() {
   const { setTheme, theme } = useTheme();

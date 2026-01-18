@@ -199,7 +199,7 @@ export function mapTechnologiesToIcons(technologies: string[]): string[] {
     .filter(Boolean) as string[]
 
   // Return unique icons, fallback to generic code icon if no matches
-  const uniqueIcons = [...new Set(icons)]
+  const uniqueIcons = Array.from(new Set(icons))
   return uniqueIcons.length > 0 ? uniqueIcons : ['mdi:code-braces']
 }
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useAdminData } from '../../contexts/AdminDataContext';
 import { useConfirmDialog } from '../../components/admin/ConfirmDialog';
 import { DataTable, Column } from '../../components/admin/DataTable';
@@ -173,7 +173,7 @@ export default function AdminProjects() {
           </p>
         </div>
         <Link
-          to="/admin/projects/new"
+          href="/admin/projects/new"
           className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
         >
           <PlusIcon className="h-4 w-4 mr-2" />

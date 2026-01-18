@@ -3,10 +3,10 @@ import { blogOperations, commentOperations } from '@/lib/database'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/lib/authOptions'
 
-function resolveBlogId(idOrSlug: string) {
-  const byId = blogOperations.getById(idOrSlug)
+async function resolveBlogId(idOrSlug: string) {
+  const byId = await blogOperations.getById(idOrSlug)
   if (byId) return byId.id as string
-  const bySlug = blogOperations.getBySlug(idOrSlug)
+  const bySlug = await blogOperations.getBySlug(idOrSlug)
   return bySlug ? (bySlug.id as string) : null
 }
 
@@ -15,7 +15,7 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   try {
-    const blogId = resolveBlogId(params.id)
+    const blogId = await resolveBlogId(params.id)
     if (!blogId) {
       return NextResponse.json({ success: false, error: 'Blog not found' }, { status: 404 })
     }
@@ -24,7 +24,7 @@ export async function GET(
     const page = parseInt(searchParams.get('page') || '1')
     const limit = parseInt(searchParams.get('limit') || '50')
 
-    const result = commentOperations.getForBlog(blogId, { page, limit })
+    const result = await commentOperations.getForBlog(blogId, { page, limit })
 
     return NextResponse.json({
       success: true,
@@ -47,7 +47,7 @@ export async function POST(
   { params }: { params: { id: string } }
 ) {
   try {
-    const blogId = resolveBlogId(params.id)
+    const blogId = await resolveBlogId(params.id)
     if (!blogId) {
       return NextResponse.json({ success: false, error: 'Blog not found' }, { status: 404 })
     }
@@ -65,7 +65,7 @@ export async function POST(
       return NextResponse.json({ success: false, error: 'Content is required' }, { status: 400 })
     }
 
-    const newComment = commentOperations.create({ blogId, author: session.user?.name || session.user?.email || 'User', content: content.trim(), parentId, userId: session.user?.email || undefined })
+    const newComment = await commentOperations.create({ blogId, author: session.user?.name || session.user?.email || 'User', content: content.trim(), parentId, userId: session.user?.email || undefined })
     if (!newComment) {
       return NextResponse.json({ success: false, error: 'Failed to create comment' }, { status: 500 })
     }

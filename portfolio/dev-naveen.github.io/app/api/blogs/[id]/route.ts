@@ -7,9 +7,9 @@ export async function GET(
 ) {
   try {
     // Try by ID first, fall back to slug for convenience
-    let blog = blogOperations.getById(params.id)
+    let blog = await blogOperations.getById(params.id)
     if (!blog) {
-      blog = blogOperations.getBySlug(params.id)
+      blog = await blogOperations.getBySlug(params.id)
     }
     
     if (!blog) {
@@ -55,7 +55,7 @@ export async function PUT(
     const { title, content, excerpt, slug, tags, imageUrl, published, featured, readTime } = body
 
     // Check if blog exists
-    const existingBlog = blogOperations.getById(params.id)
+    const existingBlog = await blogOperations.getById(params.id)
     if (!existingBlog) {
       return NextResponse.json({
         success: false,
@@ -65,7 +65,7 @@ export async function PUT(
 
     // Check if slug already exists on another blog
     if (slug && slug !== existingBlog.slug) {
-      const blogWithSlug = blogOperations.getBySlug(slug)
+      const blogWithSlug = await blogOperations.getBySlug(slug)
       if (blogWithSlug && blogWithSlug.id !== params.id) {
         return NextResponse.json({
           success: false,
@@ -85,7 +85,7 @@ export async function PUT(
     if (featured !== undefined) updates.featured = featured
     if (readTime !== undefined) updates.readTime = readTime
 
-    const updatedBlog = blogOperations.update(params.id, updates)
+    const updatedBlog = await blogOperations.update(params.id, updates)
 
     if (!updatedBlog) {
       return NextResponse.json({
