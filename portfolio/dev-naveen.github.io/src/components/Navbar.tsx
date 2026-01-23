@@ -20,8 +20,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
         { name: 'Skills', path: '/skills' },
         { name: 'Experience', path: '/experience' },
         { name: 'Education', path: '/education' },
-        { name: 'Contact', path: '/contact' },
-        { name: 'Blogs', path: '/blogs' }
+        { name: 'Contact', path: '/contact' }
     ];
 
     return (

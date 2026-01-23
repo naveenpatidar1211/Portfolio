@@ -136,19 +136,11 @@ export default function AdminDashboard() {
     },
     {
       title: 'Education',
-      value: stats.totalBlogs,
+      value: stats.totalEducation,
       icon: BookOpenIcon,
       color: 'indigo' as const,
       link: '/admin/education/new',
       showLink: '/admin/education'
-    },
-    {
-      title: 'Published Blogs',
-      value: stats.publishedBlogs,
-      icon: DocumentTextIcon,
-      color: 'red' as const,
-      link: '/admin/blogs/new',
-      showLink: '/admin/blogs'
     },
   ];
 

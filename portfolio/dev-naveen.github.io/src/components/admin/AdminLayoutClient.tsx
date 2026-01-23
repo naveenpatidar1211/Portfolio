@@ -31,7 +31,6 @@ const navigation = [
   { name: 'Experience', href: '/admin/experience', icon: BriefcaseIcon },
   { name: 'Education', href: '/admin/education', icon: BookOpenIcon },
   { name: 'Testimonials', href: '/admin/testimonials', icon: UserGroupIcon },
-  { name: 'Blogs', href: '/admin/blogs', icon: DocumentTextIcon },
   { name: 'Profile', href: '/admin/profile', icon: UserIcon },
   { name: 'Analytics', href: '/admin/analytics', icon: ChartBarIcon },
   { name: 'Settings', href: '/admin/settings', icon: Cog6ToothIcon },

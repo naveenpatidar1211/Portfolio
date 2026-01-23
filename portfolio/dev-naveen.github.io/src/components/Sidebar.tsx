@@ -45,8 +45,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isDarkMode, toggleDarkMode, isOpen, t
         { name: 'Skills', path: '/skills', icon: FaCode },
         { name: 'Experience', path: '/experience', icon: FaBriefcase },
         { name: 'Education', path: '/education', icon: FaGraduationCap },
-        { name: 'Contact', path: '/contact', icon: FaEnvelope },
-        { name: 'Blogs', path: '/blogs', icon: FaBlog }
+        { name: 'Contact', path: '/contact', icon: FaEnvelope }
     ];
 
     return (
