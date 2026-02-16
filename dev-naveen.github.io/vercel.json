@@ -7,6 +7,6 @@
     }
   ],
   "env": {
-    "DATABASE_URL": "@database_url"
+    "DATABASE_URL": "postgresql://neondb_owner:npg_1braCAMqfgj9@ep-young-snow-ahiaojjp-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require"
   }
 }
