@@ -21,7 +21,7 @@ export const projects = [
       endDate: "12-Jan-2023",
       tags: ['Python', 'Hubspot', 'Dropbox'],
       icons: ['bxl:vue-js', 'bxl-javascript', 'fa6-brands:github'],
-      imageUrl: 'https://via.placeholder.com/400x320',
+      imageUrl: 'https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=400&h=320&fit=crop',
       githubLink: '',
       demoLink: 'https://youtu.be/ai-xvKxqdyk?si=t1xKMhJQoGOq3EVI',
       show: false
