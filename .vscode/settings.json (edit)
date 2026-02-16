@@ -1,0 +1,12 @@
+{
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/**": true
+    },
+    "editor.formatOnSave": false,
+    "editor.codeLens": false,
+    "extensions.ignoreRecommendations": true,
+    "git.enabled": false,
+    "typescript.suggest.autoImports": false
+}
